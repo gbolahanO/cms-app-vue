@@ -33,7 +33,20 @@ export default {
   },
   methods: {
     login () {
-      console.log(`${this.email} ${this.password}`);
+      let data = {
+        'grant_type': 'password',
+        'client_id': 2,
+        'client_secret': 'kz9zXlonfh5HV2Bu5z1BWm1y8AHMgiSCFOYTwrv3',
+        'username': this.email,
+        'password': this.password
+      }
+      this.$http.post('http://localhost:8000/oauth/token', data)
+        .then(response => {
+          this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now())
+        })
+        .catch(e => {
+          console.log(e);
+        })
     }
   }
 }

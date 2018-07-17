@@ -26,7 +26,7 @@ export default function (Vue) {
     },
 
     // Remove token from localStorage
-    
+
     destroyToken: () => {
       localStorage.removeItem('token');
       localStorage.removeItem('expiresIn');
@@ -50,7 +50,7 @@ export default function (Vue) {
   Object.defineProperties(Vue.prototype, {
     $auth: {
       get: () => {
-        return vue.auth;
+        return Vue.auth;
       }
     }
   })
