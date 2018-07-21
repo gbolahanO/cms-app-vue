@@ -21,41 +21,14 @@
           <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="index.html">Home</a>
+                <router-link to="/dashboard">Home</router-link>
               </li>
             </ol>
           </nav>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-3 bg-dark no-padding">
-          <div class="list-group">
-            <a href="index.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-table" style="font-size: 1.2em;"></span> &nbsp; Dashboard
-              <span class="badge badge-info">13</span>
-            </a>
-            <a href="posts.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-shopping-bag" style="font-size: 1.2em;"></span> &nbsp; Posts
-              <span class="badge badge-info">215</span>
-            </a>
-            <a href="create.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-shopping-bag" style="font-size: 1.2em;"></span> &nbsp; Create Posts
-              <span class="badge badge-info">215</span>
-            </a>
-            <a href="categories.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-sync" style="font-size: 1.2em;"></span> &nbsp; Categories
-              <span class="badge badge-info">13</span>
-            </a>
-            <a href="create_category.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-sync" style="font-size: 1.2em;"></span> &nbsp; Create Categories
-              <span class="badge badge-info">13</span>
-            </a>
-            <a href="edit_category.html" class="list-group-item list-group-item-action bg-dark text-light">
-              <span class="fa fa-sync" style="font-size: 1.2em;"></span> &nbsp; Edit Categories
-              <span class="badge badge-info">13</span>
-            </a>
-          </div>
-        </div>
+        <Sidebar></Sidebar>
         <div class="col-lg-9">
           <div class="card">
             <div class="card-header">Website Overview</div>
@@ -164,8 +137,16 @@
 </template>
 
 <script>
+import Sidebar from './Sidebar'
   export default {
+    data () {
+      return {
 
+      }
+    },
+    components: {
+      'Sidebar': Sidebar
+    }
   }
 
 </script>
