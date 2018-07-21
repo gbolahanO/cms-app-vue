@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light py-3">
+    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light mb-5  py-3">
       <a class="navbar-brand" href="#">cms-app</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
