@@ -43,34 +43,21 @@
                       <td>Edit</td>
                       <td>Delete</td>
                     </tr>
-                    <tr>
-                      <td>Sampl bloe post</td>
-                      <td>Career</td>
-                      <td>05 june 2018</td>
+                    <tr v-for="(post, index) in posts" :key="index">
+                      <td>{{ post.title }}</td>
+                      <td v-for="(category, index) in categories" :key="index" v-if="post.category_id == category.id">{{ category.name }}</td>
+                      <td>{{ post.created_at }}</td>
                       <td>
-                        <a href="edit.html" class="btn btn-secondary btn-sm">
+                        <router-link :to="'/post/edit/' + post.id">
+                          <a class="btn btn-primary text-white btn-sm">
                           <span class="fa fa-sync"></span>
                           Edit</a>
+                        </router-link>
                       </td>
                       <td>
-                        <a href="" class="btn btn-danger btn-sm">
+                        <button @click="deletePost(post.id)" href="" class="btn btn-danger btn-sm">
                           <span class="fa fa-trash"></span>
-                          Delete</a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>Sampl bloe post</td>
-                      <td>Career</td>
-                      <td>05 june 2018</td>
-                      <td>
-                        <a href="" class="btn btn-secondary btn-sm">
-                          <span class="fa fa-sync"></span>
-                          Edit</a>
-                      </td>
-                      <td>
-                        <a href="edit.html" class="btn btn-danger btn-sm">
-                          <span class="fa fa-trash"></span>
-                          Delete</a>
+                          Delete</button>
                       </td>
                     </tr>
                   </table>
@@ -89,7 +76,8 @@
   export default {
     data() {
       return {
-        posts: []
+        posts: [],
+        categories: []
       }
     },
     components: {
@@ -102,7 +90,16 @@
       getAllPosts: function() {
         this.$http.get('api/post')
           .then(response => {
+            this.posts = response.body.posts;
+            this.categories = response.body.category;
             console.log(response);
+          })
+      },
+      deletePost: function (postId) {
+        this.$http.delete('api/post/' + postId)
+          .then(response => {
+            let index = this.posts.indexOf(postId);
+            this.posts.splice(index, 1);
           })
       }
     }
