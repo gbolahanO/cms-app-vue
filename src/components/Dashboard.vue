@@ -86,50 +86,7 @@
               </div>
             </div>
           </div>
-          <div class="card mt-4">
-            <div class="card-header">
-              Create Post
-            </div>
-            <div class="card-body">
-              <form>
-                <div class="form-group">
-                  <label for="exampleFormControlInput1">Post Title</label>
-                  <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlSelect1">Post Category</label>
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Career</option>
-                    <option>Finance</option>
-                    <option>Tech</option>
-                  </select>
-                </div>
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Career
-                  </label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> Relationship
-                  </label>
-                </div>
-                <div class="form-group mt-2">
-                  <label for="exampleFormControlFile1">Upload blog image</label>
-                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                </div>
-                <div class="form-group">
-                  <label for="exampleFormControlTextarea1">Post Body</label>
-                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias pariatur ea minus iste earum, sequi possimus
-                    provident laborum impedit repellat quis reiciendis asperiores, quod sint perferendis suscipit exercitationem
-                    tempore ratione.</textarea>
-                </div>
-                <button href="" class="btn btn-success btn-small">Save Changes</button>
-                <button href="" class="btn btn-info btn-small">Cancel</button>
-              </form>
-
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
