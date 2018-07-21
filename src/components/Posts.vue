@@ -100,7 +100,7 @@
     },
     methods: {
       getAllPosts: function() {
-        this.$http.get('http://localhost:8000/api/posts')
+        this.$http.get('api/post')
           .then(response => {
             console.log(response);
           })

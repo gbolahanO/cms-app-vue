@@ -36,11 +36,11 @@ export default {
       let data = {
         'grant_type': 'password',
         'client_id': 2,
-        'client_secret': 'kz9zXlonfh5HV2Bu5z1BWm1y8AHMgiSCFOYTwrv3',
+        'client_secret': 'IKvTa3ErzqxDk6PcPOqtEr1cUyhV2VoNPtTX9Smb',
         'username': this.email,
         'password': this.password
       }
-      this.$http.post('http://localhost:8000/oauth/token', data)
+      this.$http.post('oauth/token', data)
         .then(response => {
           this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now());
           this.$router.push('/dashboard');
