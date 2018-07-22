@@ -8,6 +8,7 @@ import EditPost from '@/components/EditPost'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/login',
@@ -25,9 +26,9 @@ export default new Router({
       component: Posts
     },
     {
-      path: 'post/edit/:id',
+      path: '/post/edit/:id',
       name: 'EditPost',
       component: EditPost
     }
-  ]
+  ],
 })
