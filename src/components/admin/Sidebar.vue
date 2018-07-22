@@ -26,13 +26,26 @@
           <span class="fa fa-pencil-alt" style="font-size: 1.2em;"></span> &nbsp; Create Categories
         </a>
       </router-link>
+      <a @click="logout" class="list-group-item list-group-item-action bg-dark text-light">
+          <span class="fa fa-power-off" style="font-size: 1.2em;"></span> &nbsp; Logout
+        </a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
 
+    }
+  },
+  methods: {
+    logout: function () {
+      this.$auth.destroyToken();
+      this.$router.push('/login');
+    }
+  }
 }
 </script>
 
