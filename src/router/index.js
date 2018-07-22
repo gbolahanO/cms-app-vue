@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Login from '@/components/authentication/Login'
-import Dashboard from '@/components/Dashboard'
-import Posts from '@/components/Posts'
-import EditPost from '@/components/EditPost'
-import CreatePost from '@/components/CreatePost'
-import Categories from '@/components/Categories'
-import EditCategory from '@/components/EditCategory'
-import CreateCategory from '@/components/CreateCategory'
+import Dashboard from '@/components/admin/Dashboard'
+import Posts from '@/components/admin/Posts'
+import EditPost from '@/components/admin/EditPost'
+import CreatePost from '@/components/admin/CreatePost'
+import Categories from '@/components/admin/Categories'
+import EditCategory from '@/components/admin/EditCategory'
+import CreateCategory from '@/components/admin/CreateCategory'
 
 Vue.use(Router)
 
