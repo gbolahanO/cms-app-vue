@@ -5,6 +5,8 @@ import Dashboard from '@/components/Dashboard'
 import Posts from '@/components/Posts'
 import EditPost from '@/components/EditPost'
 import CreatePost from '@/components/CreatePost'
+import Categories from '@/components/Categories'
+import EditCategory from '@/components/EditCategory'
 
 Vue.use(Router)
 
@@ -35,6 +37,16 @@ export default new Router({
       path: '/post/create',
       name: 'CreatePost',
       component: CreatePost
+    },
+    {
+      path: '/categories',
+      name: 'Categories',
+      component: Categories
+    },
+    {
+      path: '/category/edit/:id',
+      name: 'EditCategory',
+      component: EditCategory
     }
   ],
 })
