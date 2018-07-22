@@ -1,31 +1,16 @@
 <template>
   <div>
-    <div class="container-fluid bg-secondary mt-5 text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 py-4">
-            <h1>
-              <span class="fa fa-trash"></span>Post
-              <small>create new post</small>
-            </h1>
-          </div>
-          <div class="col-lg-2 py-3 mt-3">
-            <a href="" class="btn btn-info">Create content</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="container mt-2">
+    <div class="container-fluid py-4"></div>
+    <div class="container mt-5">
         <div class="row">
           <div class="col-lg-12 p-0">
             <nav aria-label="breadcrumb" role="navigation">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <router-link to="/dashboard">Home</router-link>
                 </li>
                 <li class="breadcrumb-item">
-                  <a href="edit.html">Edit Post</a>
+                  <router-link :to="'/post/edit/' + this.$route.params.id">Edit Post</router-link>
                 </li>
               </ol>
             </nav>
@@ -41,7 +26,7 @@
                   <div class="col-lg-12">
                     <form @submit.prevent="submitPost">
                       <div class="form-group">
-                        <label for="exampleFormControlInput1">Post Title</label>
+                        <label for="">Post Title</label>
                         <input v-model="post.title" type="text" class="form-control" placeholder="post title">
                       </div>
                       <div class="form-group">
@@ -53,8 +38,8 @@
                         </select>
                       </div>
                       <div class="form-group mt-2">
-                        <label for="exampleFormControlFile1">Upload blog image</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        <label for="">Upload blog image</label>
+                        <input type="file" class="form-control-file" id="">
                       </div>
                       <div class="form-group">
                         <label for="exampleFormControlTextarea1">Post Content</label>

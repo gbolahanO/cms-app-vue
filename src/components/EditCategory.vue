@@ -1,31 +1,16 @@
 <template>
   <div>
-    <div class="container-fluid bg-secondary mt-5 text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 py-4">
-            <h1>
-              <span class="fa fa-trash"></span>Post
-              <small>create new post</small>
-            </h1>
-          </div>
-          <div class="col-lg-2 py-3 mt-3">
-            <a href="" class="btn btn-info">Create content</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <div class="container mt-2">
+    <div class="container-fluid py-4"></div>
+    <div class="container mt-5">
         <div class="row">
           <div class="col-lg-12 p-0">
             <nav aria-label="breadcrumb" role="navigation">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item">
-                  <a href="index.html">Home</a>
+                  <router-link to="/dashboard">Home</router-link>
                 </li>
                 <li class="breadcrumb-item">
-                  <a>Edit Category</a>
+                  <router-link :to="'/category/edit/' + this.$route.params.id">Edit Category</router-link>
                 </li>
               </ol>
             </nav>

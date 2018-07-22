@@ -1,27 +1,16 @@
 <template>
   <div>
-    <div class="container-fluid mt-5 bg-secondary text-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-10 py-4">
-            <h1>
-              <span class="fa fa-trash"></span>Dashboard
-              <small>manage your site</small>
-            </h1>
-          </div>
-          <div class="col-lg-2 py-3 mt-3">
-            <a href="" class="btn btn-info">Create content</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container mt-2">
+    <div class="container-fluid py-4"></div>
+    <div class="container mt-5">
       <div class="row">
         <div class="col-lg-12 p-0">
           <nav aria-label="breadcrumb" role="navigation">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
                 <router-link to="/dashboard">Home</router-link>
+              </li>
+              <li class="breadcrumb-item">
+                <router-link to="/categories">Categories</router-link>
               </li>
             </ol>
           </nav>
