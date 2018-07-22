@@ -4,6 +4,7 @@ import Login from '@/components/authentication/Login'
 import Dashboard from '@/components/Dashboard'
 import Posts from '@/components/Posts'
 import EditPost from '@/components/EditPost'
+import CreatePost from '@/components/CreatePost'
 
 Vue.use(Router)
 
@@ -29,6 +30,11 @@ export default new Router({
       path: '/post/edit/:id',
       name: 'EditPost',
       component: EditPost
+    },
+    {
+      path: '/post/create',
+      name: 'CreatePost',
+      component: CreatePost
     }
   ],
 })

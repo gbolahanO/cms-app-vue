@@ -48,7 +48,7 @@
                         <label for="exampleFormControlSelect1">Post Category</label>
                         <select v-model="post.category_id" class="form-control">
                           <option value="1">Career</option>
-                          <option value="2">Finance</option>
+                          <option value="2">Lifestyle</option>
                           <option value="3">Tech</option>
                         </select>
                       </div>
