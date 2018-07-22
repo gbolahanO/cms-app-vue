@@ -48,9 +48,9 @@
                         <label for="">Post Category</label>
                         <select v-model="category_id" class="form-control">
                           <option value="">Select Category</option>
-                          <option value="1">Career</option>
-                          <option value="2">Lifesytle</option>
-                          <option value="3">Tech</option>
+                          <option value="1">News</option>
+                          <option value="2">Lifestyle</option>
+                          <option value="3">Fresh</option>
                         </select>
                       </div>
                       <div class="form-group mt-2">
