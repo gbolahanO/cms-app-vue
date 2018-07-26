@@ -27,7 +27,10 @@
                     <form @submit.prevent="submitCategory">
                       <div class="form-group">
                         <label for="">Category Name</label>
-                        <input v-model="name" type="text" class="form-control" placeholder="Category Name">
+                        <input v-validate="'required'" name="category name" v-model="name" type="text" class="form-control" placeholder="Category Name">
+                        <div v-show="errors.has('category name')" class="alert alert-danger" role="alert">
+                          <span>{{ errors.first('category name') }}</span>
+                        </div>
                       </div>
                       <button class="btn btn-success btn-small">Create</button>
                     </form>
@@ -55,17 +58,22 @@
     },
     methods: {
       submitCategory: function () {
-        let data = {
-          name: this.name
-        }
-        this.$http.post('api/category', data)
-          .then(response => {
-            console.log(response + ' ' + 'success')
-          , e => {
-            console.log(e + 'errorererer');
-          }});
+        this.$validator.validateAll().then((result) => {
+          if (result) {
+            let data = {
+              name: this.name
+            }
+            this.$http.post('api/category', data)
+              .then(response => {
+                console.log(response + ' ' + 'success')
+              , e => {
+                console.log(e + 'errorererer');
+              }});
 
-        console.log(this.name);
+            console.log(this.name);
+            return;
+          }
+        })
       }
     }
   }
