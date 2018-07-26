@@ -27,16 +27,22 @@
                     <form @submit.prevent="submitPost">
                       <div class="form-group">
                         <label for="exampleFormControlInput1">Post Title</label>
-                        <input v-model="title" type="text" class="form-control" placeholder="post title">
+                        <input v-validate="'required'" v-model="title" name="Post Title" type="text" class="form-control" placeholder="Post Title">
+                        <div v-show="errors.has('Post Title')" class="alert alert-danger">
+                          <span>{{ errors.first('Post Title') }}</span>
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="">Post Category</label>
-                        <select v-model="category_id" class="form-control">
+                        <select v-validate="'required'" name="Category" v-model="category_id" class="form-control">
                           <option value="">Select Category</option>
                           <option value="1">News</option>
                           <option value="2">Lifestyle</option>
                           <option value="3">Fresh</option>
                         </select>
+                      </div>
+                      <div v-show="errors.has('Category')" class="alert alert-danger">
+                        <span>{{ errors.first('Category') }}</span>
                       </div>
                       <div class="form-group mt-2">
                         <label for="">Upload blog image</label>
@@ -44,9 +50,12 @@
                       </div>
                       <div class="form-group">
                         <label for="">Post Content</label>
-                        <textarea v-model="content" class="form-control"></textarea>
+                        <textarea v-validate="'required'" name="Content" v-model="content" class="form-control"></textarea>
                       </div>
-                      <button href="" class="btn btn-success btn-small">Save Changes</button>
+                      <div v-show="errors.has('Content')" class="alert alert-danger">
+                        <span>{{ errors.first('Content') }}</span>
+                      </div>
+                      <button class="btn btn-success btn-small">Create</button>
                     </form>
                   </div>
                 </div>
