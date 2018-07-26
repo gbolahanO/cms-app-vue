@@ -9,8 +9,8 @@ import VeeValidate from 'vee-validate'
 
 Vue.config.productionTip = false
 Vue.use(auth)
-Vue.use(vueResource)
 Vue.use(VeeValidate)
+Vue.use(vueResource)
 
 Vue.http.options.root = 'http://localhost:8000'
 Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken()
