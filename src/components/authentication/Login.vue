@@ -12,7 +12,7 @@
                 <span>{{ errors.first('email') }}</span>
               </div>
 
-              <input v-validate="'required|min:8'" name="password" v-model="password" type="password" class="form-control mt-3" placeholder="Password" >
+              <input v-validate="'required|min:6'" name="password" v-model="password" type="password" class="form-control mt-3" placeholder="Password" >
               <div v-show="errors.has('password')" class="alert alert-danger" role="alert">
                 <span>{{ errors.first('password') }}</span>
               </div>
