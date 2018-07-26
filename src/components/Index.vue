@@ -6,58 +6,33 @@
 
         <!-- Section One-->
         <div v-for="(newsPost, index) in News" :key="index" class="col-lg-4">
-          <div class="card mb-5 border-0">
-            <img class="card-img-top" :src="newsPost.post_image" alt="Post Image">
-            <div class="card-body blog-card bg-light">
-              <p><b>NEWS</b> <span class="bg-light">{{ newsPost.created_at }}</span> <b>User</b></p>
-              <p><b>{{ newsPost.title}} </b></p>
-              <p class="card-text">{{ newsPost.content | snippet }}</p>
-            </div>
-          </div>
+          <Post :title="newsPost.title" :content="newsPost.content" :category="'NEWS'"
+                :postImage="newsPost.post_image" :createdAt="newsPost.created_at">
+          </Post>
         </div>
 
         <!-- Section Two-->
         <div class="col-lg-8">
-          <div class="card mb-5 border-0">
-            <img class="card-img-top" :src="firstLifestyle.post_image" alt="Post Image">
-            <div class="card-body blog-card bg-light">
-              <p><b>LIFESYTLE</b> <span class="bg-light">{{ firstLifestyle.created_at }}</span> <b>User</b></p>
-              <p><b>{{ firstLifestyle.title }}</b></p>
-              <p class="card-text">{{ firstLifestyle.content | snippet }}</p>
-            </div>
-          </div>
+          <Post :title="firstLifestyle.title" :content="firstLifestyle.content" :category="'LIFESTYLE'"
+                :postImage="firstLifestyle.post_image" :createdAt="firstLifestyle.created_at">
+          </Post>
         </div>
         <div class="col-lg-4">
-          <div class="card mb-5 border-0">
-            <img class="card-img-top" :src="secondLifestyle.post_image" alt="Post Image">
-            <div class="card-body blog-card bg-light">
-              <p><b>LIFESYTLE</b> <span class="bg-light">{{ secondLifestyle.created_at }}</span> <b>User</b></p>
-              <p><b>{{ secondLifestyle.title }}</b></p>
-              <p class="card-text">{{ secondLifestyle.content | snippet }}</p>
-            </div>
-          </div>
+          <Post :title="secondLifestyle.title" :content="secondLifestyle.content" :category="'LIFESTYLE'"
+                :postImage="secondLifestyle.post_image" :createdAt="secondLifestyle.created_at">
+          </Post>
         </div>
 
         <!-- Section Three-->
         <div class="col-lg-4">
-          <div class="card mb-5 border-0">
-            <img class="card-img-top" :src="secondLifestyle.post_image" alt="Post Image">
-            <div class="card-body blog-card bg-light">
-              <p><b>LIFESYTLE</b> <span class="bg-light">{{ secondLifestyle.created_at }}</span> <b>User</b></p>
-              <p><b>{{ secondLifestyle.title }}</b></p>
-              <p class="card-text">{{ secondLifestyle.content | snippet }}</p>
-            </div>
-          </div>
+          <Post :title="firstFresh.title" :content="firstFresh.content" :category="'FRESH'"
+                :postImage="firstFresh.post_image" :createdAt="firstFresh.created_at">
+          </Post>
         </div>
         <div class="col-lg-8">
-          <div class="card mb-5 border-0">
-            <img class="card-img-top" :src="firstLifestyle.post_image" alt="Post Image">
-            <div class="card-body blog-card bg-light">
-              <p><b>LIFESYTLE</b> <span class="bg-light">{{ firstLifestyle.created_at }}</span> <b>User</b></p>
-              <p><b>{{ firstLifestyle.title }}</b></p>
-              <p class="card-text">{{ firstLifestyle.content | snippet }}</p>
-            </div>
-          </div>
+          <Post :title="secondFresh.title" :content="secondFresh.content" :category="'FRESH'"
+                :postImage="secondFresh.post_image" :createdAt="secondFresh.created_at">
+          </Post>
         </div>
 
       </div>
@@ -67,6 +42,7 @@
 
 <script>
 import Navbar from './Navbar'
+import Post from './Post'
  export default {
    data () {
      return {
@@ -78,7 +54,8 @@ import Navbar from './Navbar'
      }
    },
    components: {
-     'navbar': Navbar
+     'navbar': Navbar,
+     'Post': Post
    },
    created() {
      this.fetchPosts();
