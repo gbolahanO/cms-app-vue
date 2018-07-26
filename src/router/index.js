@@ -8,12 +8,18 @@ import CreatePost from '@/components/admin/CreatePost'
 import Categories from '@/components/admin/Categories'
 import EditCategory from '@/components/admin/EditCategory'
 import CreateCategory from '@/components/admin/CreateCategory'
+import Index from '@/components/Index'
 
 Vue.use(Router)
 
 export default new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/',
+      name: 'Index',
+      component: Index
+    },
     {
       path: '/login',
       name: 'Login',
