@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data () {
     return {
@@ -48,7 +49,7 @@ export default {
             'password': this.password
           };
 
-          this.$http.post('http://localhost:8000/oauth/token', data)
+          axios.post('http://localhost:8000/oauth/token', data)
             .then(response => {
               this.$auth.setToken(response.data.access_token, response.data.expires_in + Date.now());
               this.$router.push('/dashboard');

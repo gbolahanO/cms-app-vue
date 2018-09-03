@@ -45,35 +45,36 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        name: ''
-      }
-    },
-    components: {
-      'Sidebar': Sidebar
-    },
-    methods: {
-      submitCategory: function () {
-        this.$validator.validateAll().then((result) => {
-          if (result) {
-            let data = {
-              name: this.name
-            }
-            this.$http.post('http://localhost:8000/api/category', data)
-              .then(response => {
-                console.log(response + ' ' + 'success')
-              });
-
-            console.log(this.name);
-            return;
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      name: ''
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  methods: {
+    submitCategory: function () {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          let data = {
+            name: this.name
           }
-        })
-      }
+          axios.post('http://localhost:8000/api/category', data)
+            .then(response => {
+              console.log(response + ' ' + 'success')
+            });
+
+          console.log(this.name);
+          return;
+        }
+      })
     }
   }
+}
 
 </script>
 

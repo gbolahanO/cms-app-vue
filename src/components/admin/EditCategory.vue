@@ -42,39 +42,40 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        name: ''
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      name: ''
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  created() {
+    axios.get(`http://localhost:8000/api/category/${this.$route.params.id}/edit`)
+      .then(response => {
+        this.name = response.data.name;
+        console.log(response);
+      })
+  },
+  methods: {
+    submitCategory: function () {
+      let data = {
+        name: this.name
       }
-    },
-    components: {
-      'Sidebar': Sidebar
-    },
-    created() {
-      this.$http.get(`http://localhost:8000/api/category/${this.$route.params.id}/edit`)
+      axios.patch(`http://localhost:8000/api/category/${this.$route.params.id}`, data)
         .then(response => {
-          this.name = response.data.name;
-          console.log(response);
-        })
-    },
-    methods: {
-      submitCategory: function () {
-        let data = {
-          name: this.name
-        }
-        this.$http.patch(`http://localhost:8000/api/category/${this.$route.params.id}`, data)
-          .then(response => {
-            console.log(response + ' ' + 'success')
-          }).catch(e => {
-            console.log(e + 'errorererer');
-          });
+          console.log(response + ' ' + 'success')
+        }).catch(e => {
+          console.log(e + 'errorererer');
+        });
 
-        console.log(this.name);
-      }
+      console.log(this.name);
     }
   }
+}
 
 </script>
 

@@ -60,38 +60,39 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        posts: [],
-        categories: []
-      }
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      posts: [],
+      categories: []
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  created() {
+    this.getAllPosts()
+  },
+  methods: {
+    getAllPosts: function() {
+      axios.get('http://localhost:8000/api/post')
+        .then(response => {
+          this.posts = response.data.posts;
+          this.categories = response.data.category;
+          console.log(response);
+        })
     },
-    components: {
-      'Sidebar': Sidebar
-    },
-    created() {
-      this.getAllPosts()
-    },
-    methods: {
-      getAllPosts: function() {
-        this.$http.get('http://localhost:8000/api/post')
-          .then(response => {
-            this.posts = response.data.posts;
-            this.categories = response.data.category;
-            console.log(response);
-          })
-      },
-      deletePost: function (postId) {
-        this.$http.delete('http://localhost:8000/api/post/' + postId)
-          .then(response => {
-            let index = this.posts.indexOf(postId);
-            this.posts.splice(index, 1);
-          })
-      }
+    deletePost: function (postId) {
+      axios.delete('http://localhost:8000/api/post/' + postId)
+        .then(response => {
+          let index = this.posts.indexOf(postId);
+          this.posts.splice(index, 1);
+        })
     }
   }
+}
 
 </script>
 

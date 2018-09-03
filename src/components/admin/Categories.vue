@@ -58,36 +58,37 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        categories: []
-      }
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      categories: []
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  created() {
+    this.getAllPosts()
+  },
+  methods: {
+    getAllPosts: function() {
+      axios.get('http://localhost:8000/api/category')
+        .then(response => {
+          this.categories = response.data;
+          console.log(response);
+        })
     },
-    components: {
-      'Sidebar': Sidebar
-    },
-    created() {
-      this.getAllPosts()
-    },
-    methods: {
-      getAllPosts: function() {
-        this.$http.get('http://localhost:8000/api/category')
-          .then(response => {
-            this.categories = response.data;
-            console.log(response);
-          })
-      },
-      deleteCategory: function (categoryId) {
-        this.$http.delete('http://localhost:8000/api/category/' + categoryId)
-          .then(response => {
-            let index = this.categories.indexOf(categoryId);
-            this.categories.splice(index, 1);
-          })
-      }
+    deleteCategory: function (categoryId) {
+      axios.delete('http://localhost:8000/api/category/' + categoryId)
+        .then(response => {
+          let index = this.categories.indexOf(categoryId);
+          this.categories.splice(index, 1);
+        })
     }
   }
+}
 
 </script>
 

@@ -15,6 +15,8 @@ Vue.use(VeeValidate)
 Vue.use(vueResource)
 Vue.use(VueMoment)
 
+axios.defaults.headers.common['Authoriztion'] = "Bearer " + Vue.auth.getToken()
+
 // Vue.http.options.root = 'http://localhost:8000'
 // Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken()
 

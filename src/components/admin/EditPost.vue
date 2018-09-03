@@ -58,36 +58,37 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        post: {}
-      }
-    },
-    components: {
-      'Sidebar': Sidebar
-    },
-    created() {
-      this.$http.get(`http://localhost:8000/api/post/${this.$route.params.id}/edit`)
-        .then(response => {
-          this.post = response.data;
-          console.log(response);
-        })
-    },
-    methods: {
-      submitPost: function () {
-       this.$http.patch(`http://localhost:8000/api/post/${this.$route.params.id}`, this.post)
-        .then(response => {
-          console.log(response + ' ' + 'success')
-        }).catch(e => {
-          console.log(e + 'errorererer');
-        });
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      post: {}
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  created() {
+    axios.get(`http://localhost:8000/api/post/${this.$route.params.id}/edit`)
+      .then(response => {
+        this.post = response.data;
+        console.log(response);
+      })
+  },
+  methods: {
+    submitPost: function () {
+      axios.patch(`http://localhost:8000/api/post/${this.$route.params.id}`, this.post)
+      .then(response => {
+        console.log(response + ' ' + 'success')
+      }).catch(e => {
+        console.log(e + 'errorererer');
+      });
 
-        console.log(this.post);
-      }
+      console.log(this.post);
     }
   }
+}
 
 </script>
 

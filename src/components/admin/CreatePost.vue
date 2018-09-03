@@ -68,37 +68,38 @@
 </template>
 
 <script>
-  import Sidebar from './Sidebar'
-  export default {
-    data() {
-      return {
-        title: '',
-        category_id: '',
-        content: ''
+import axios from 'axios'
+import Sidebar from './Sidebar'
+export default {
+  data() {
+    return {
+      title: '',
+      category_id: '',
+      content: ''
+    }
+  },
+  components: {
+    'Sidebar': Sidebar
+  },
+  methods: {
+    submitPost: function () {
+      let data = {
+        user_id: 1,
+        category_id: this.category_id,
+        title: this.title,
+        content: this.content
       }
-    },
-    components: {
-      'Sidebar': Sidebar
-    },
-    methods: {
-      submitPost: function () {
-        let data = {
-          user_id: 1,
-          category_id: this.category_id,
-          title: this.title,
-          content: this.content
-        }
-        this.$http.post(`http://localhost:8000/api/post`, data)
-          .then(response => {
-            console.log(response + ' ' + 'success')
-           }).catch(e => {
-            console.log(e + 'errorererer');
-          });
+      axios.post(`http://localhost:8000/api/post`, data)
+        .then(response => {
+          console.log(response + ' ' + 'success')
+          }).catch(e => {
+          console.log(e + 'errorererer');
+        });
 
-        console.log(data);
-      }
+      console.log(data);
     }
   }
+}
 
 </script>
 
