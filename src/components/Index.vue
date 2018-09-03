@@ -7,7 +7,7 @@
         <!-- Section One-->
         <div v-for="(newsPost, index) in News" :key="index" class="col-lg-4">
           <Post :title="newsPost.title" :content="newsPost.content" :category="'NEWS'"
-                :postImage="newsPost.post_image" :createdAt="newsPost.created_at">
+                :postImage="newsPost.post_image" :createdAt="newsPost.created_at" :postSlug="newsPost.post_slug">
           </Post>
         </div>
 
