@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mt-5">
+    <div class="container">
       <div class="row">
 
         <!-- Section One-->
@@ -84,9 +84,6 @@ import Post from './Post'
 </script>
 
 <style>
-.container {
-  margin-top: 100px !important;
-}
 .nav {
    background-color: #faf7e8;
    margin: 0 auto;

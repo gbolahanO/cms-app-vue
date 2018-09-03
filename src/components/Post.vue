@@ -6,7 +6,7 @@
       <router-link :to="'/category/' + categoryId + '/posts'">
         <b>{{ categoryName }}</b>
       </router-link>
-        <span class="bg-light">{{ createdAt }}</span> <b>User</b></p>
+        <span class="bg-light">{{ createdAt | moment("from") }}</span> <b>User</b></p>
       <router-link :to="'/blog/' + postSlug">
         <p><b>{{ title }}</b></p>
       </router-link>

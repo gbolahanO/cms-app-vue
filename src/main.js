@@ -6,11 +6,13 @@ import router from './router'
 import auth from './packages/auth/Auth'
 import vueResource from 'vue-resource'
 import VeeValidate from 'vee-validate'
+import VueMoment from 'vue-moment'
 
 Vue.config.productionTip = false
 Vue.use(auth)
 Vue.use(VeeValidate)
 Vue.use(vueResource)
+Vue.use(VueMoment)
 
 Vue.http.options.root = 'http://localhost:8000'
 Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken()

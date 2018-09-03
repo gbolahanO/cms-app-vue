@@ -4,7 +4,7 @@
       <div class="row mb-5">
         <div class="col-lg-7 text-center m-auto">
           <span class="">
-            {{ post.created_at}} / {{ category | capitalize }}
+            {{ post.created_at | moment("dddd, MMMM Do YYYY") }} / {{ category | capitalize }}
           </span>
           <h1 class="display-5 text-center">
             {{ post.title }}
