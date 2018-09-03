@@ -43,7 +43,7 @@ export default {
             let data = {
             'grant_type': 'password',
             'client_id': 2,
-            'client_secret': 'IKvTa3ErzqxDk6PcPOqtEr1cUyhV2VoNPtTX9Smb',
+            'client_secret': '8KWW4F7TjwsDHPgBDHwjiCr3bSU1AzxSTDbkrSsr',
             'username': this.email,
             'password': this.password
           };

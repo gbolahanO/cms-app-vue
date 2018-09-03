@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid py-4"></div>
-    <div class="container mt-5">
+    <div class="container">
       <div class="row">
         <div class="col-lg-12 p-0">
           <nav aria-label="breadcrumb" role="navigation">

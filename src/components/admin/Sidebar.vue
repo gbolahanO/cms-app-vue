@@ -1,5 +1,5 @@
 <template>
-  <div class="col-lg-3 bg-dark no-padding">
+  <div class="col-lg-3 bg-dark">
     <div class="list-group">
       <router-link to="/dashboard">
         <a class="list-group-item list-group-item-action bg-dark text-light">
