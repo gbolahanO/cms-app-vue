@@ -8,6 +8,7 @@ import CreatePost from '@/components/admin/CreatePost'
 import Categories from '@/components/admin/Categories'
 import EditCategory from '@/components/admin/EditCategory'
 import CreateCategory from '@/components/admin/CreateCategory'
+import CategoryPosts from '@/components/CategoryPosts'
 import Index from '@/components/Index'
 
 Vue.use(Router)
@@ -59,6 +60,11 @@ export default new Router({
       path: '/category/create',
       name: 'CreateCategory',
       component: CreateCategory
+    },
+    {
+      path: '/category/:id/posts',
+      name: 'CategoryPosts',
+      component: CategoryPosts
     }
   ],
 })

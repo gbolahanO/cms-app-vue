@@ -2,7 +2,11 @@
   <div class="card mb-5 border-0">
     <img class="card-img-top" :src="postImage" alt="Post Image">
     <div class="card-body blog-card bg-light">
-      <p><b>{{ category }}</b> <span class="bg-light">{{ createdAt }}</span> <b>User</b></p>
+      <p>
+      <router-link :to="'/category/' + categoryId + '/posts'">
+        <b>{{ categoryName }}</b>
+      </router-link>
+        <span class="bg-light">{{ createdAt }}</span> <b>User</b></p>
       <router-link :to="'/blog/' + postSlug">
         <p><b>{{ title }}</b></p>
       </router-link>
@@ -13,7 +17,7 @@
 
 <script>
 export default {
-  props: ['title', 'content', 'postImage', 'createdAt', 'category', 'postSlug'],
+  props: ['title', 'content', 'postImage', 'createdAt', 'categoryId', 'postSlug', 'categoryName'],
   data () {
     return {
 

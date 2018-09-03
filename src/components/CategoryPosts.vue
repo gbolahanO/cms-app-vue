@@ -3,8 +3,8 @@
     <div class="row">
 
       <!-- Section One-->
-      <div v-for="(category_post, index) in News" :key="index" class="col-lg-4">
-        <Post :title="category_post.title" :content="category_post.content" :category="'cat'"
+      <div v-for="(category_post, index) in posts" :key="index" class="col-lg-4">
+        <Post :title="category_post.title" :content="category_post.content" :categoryId="'cat'"
               :postImage="category_post.post_image" :createdAt="category_post.created_at" :postSlug="category_post.post_slug">
         </Post>
       </div>
@@ -15,10 +15,12 @@
 
 <script>
 import Navbar from './Navbar'
+import Post from './Post'
  export default {
    data () {
      return {
-      Posts: []
+      id: this.$route.params.id,
+      posts: []
      }
    },
    components: {
@@ -30,8 +32,9 @@ import Navbar from './Navbar'
    },
    methods: {
      fetchPosts: function() {
-         this.$http.get('api/category/'+ this.$route.id + '/posts')
+         this.$http.get('api/category/'+ this.id + '/posts')
         .then(response => {
+          console.log(response);
           this.posts = response.body.category_posts;
           // this.posts = response.body.news.splice(0, 3);
         });

@@ -1,37 +1,40 @@
 <template>
   <div>
-    <navbar></navbar>
     <div class="container mt-5">
       <div class="row">
 
         <!-- Section One-->
         <div v-for="(newsPost, index) in News" :key="index" class="col-lg-4">
-          <Post :title="newsPost.title" :content="newsPost.content" :category="'NEWS'"
-                :postImage="newsPost.post_image" :createdAt="newsPost.created_at" :postSlug="newsPost.post_slug">
+          <Post :title="newsPost.title" :content="newsPost.content" :categoryId="'1'"
+                :categoryName="'NEWS'" :postImage="newsPost.post_image" :createdAt="newsPost.created_at" :postSlug="newsPost.post_slug">
           </Post>
         </div>
 
         <!-- Section Two-->
         <div class="col-lg-8">
-          <Post :title="firstLifestyle.title" :content="firstLifestyle.content" :category="'LIFESTYLE'"
-                :postImage="firstLifestyle.post_image" :createdAt="firstLifestyle.created_at">
+          <Post :title="firstLifestyle.title" :content="firstLifestyle.content" :categoryId="'2'"
+                :postImage="firstLifestyle.post_image" :createdAt="firstLifestyle.created_at"
+                :categoryName="'LIFESTYLE'">
           </Post>
         </div>
         <div class="col-lg-4">
-          <Post :title="secondLifestyle.title" :content="secondLifestyle.content" :category="'LIFESTYLE'"
-                :postImage="secondLifestyle.post_image" :createdAt="secondLifestyle.created_at">
+          <Post :title="secondLifestyle.title" :content="secondLifestyle.content" :categoryId="'2'"
+                :postImage="secondLifestyle.post_image" :createdAt="secondLifestyle.created_at"
+                :categoryName="'LIFESTYLE'">
           </Post>
         </div>
 
         <!-- Section Three-->
         <div class="col-lg-4">
-          <Post :title="firstFresh.title" :content="firstFresh.content" :category="'FRESH'"
-                :postImage="firstFresh.post_image" :createdAt="firstFresh.created_at">
+          <Post :title="firstFresh.title" :content="firstFresh.content" :categoryId="'3'"
+                :postImage="firstFresh.post_image" :createdAt="firstFresh.created_at"
+                :categoryName="'FRESH'">
           </Post>
         </div>
         <div class="col-lg-8">
-          <Post :title="secondFresh.title" :content="secondFresh.content" :category="'FRESH'"
-                :postImage="secondFresh.post_image" :createdAt="secondFresh.created_at">
+          <Post :title="secondFresh.title" :content="secondFresh.content" :categoryId="'3'"
+                :postImage="secondFresh.post_image" :createdAt="secondFresh.created_at"
+                :categoryName="'FRESH'">
           </Post>
         </div>
 
@@ -41,7 +44,6 @@
 </template>
 
 <script>
-import Navbar from './Navbar'
 import Post from './Post'
  export default {
    data () {
@@ -54,7 +56,6 @@ import Post from './Post'
      }
    },
    components: {
-     'navbar': Navbar,
      'Post': Post
    },
    created() {
