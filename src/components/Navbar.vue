@@ -8,28 +8,27 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <router-link to="/">
+            <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link to="/category/1/posts">
+            <a class="nav-link">News</a>
+          </router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link to="/category/2/posts">
+            <a class="nav-link">Lifstyle</a>
+          </router-link>
+        </li>
+        <li class="nav-item active">
+          <router-link to="/category/3/posts">
+            <a class="nav-link">Fresh</a>
+          </router-link>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Beauty</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Lifestyle</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Relationships</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Food</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Gist</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Career</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About me</a>
+          <a class="nav-link" href="/aboutme">About me</a>
         </li>
         <li class="nav-item">
           <router-link to="/login">
