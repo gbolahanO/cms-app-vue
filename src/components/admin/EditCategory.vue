@@ -20,7 +20,7 @@
           <div class="col-lg-9">
             <div class="card">
               <div class="card-header">Edit Category</div>
-              <div class="card-body">
+              <div class="card-data">
                 <div class="row">
                   <div class="col-lg-12">
                     <form @submit.prevent="submitCategory">
@@ -53,9 +53,9 @@
       'Sidebar': Sidebar
     },
     created() {
-      this.$http.get(`api/category/${this.$route.params.id}/edit`)
+      this.$http.get(`http://localhost:8000/api/category/${this.$route.params.id}/edit`)
         .then(response => {
-          this.name = response.body.name;
+          this.name = response.data.name;
           console.log(response);
         })
     },
@@ -64,12 +64,12 @@
         let data = {
           name: this.name
         }
-        this.$http.patch(`api/category/${this.$route.params.id}`, data)
+        this.$http.patch(`http://localhost:8000/api/category/${this.$route.params.id}`, data)
           .then(response => {
             console.log(response + ' ' + 'success')
-          , e => {
+          }).catch(e => {
             console.log(e + 'errorererer');
-          }});
+          });
 
         console.log(this.name);
       }

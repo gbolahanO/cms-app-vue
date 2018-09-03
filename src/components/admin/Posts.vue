@@ -20,7 +20,7 @@
         <div class="col-lg-9">
           <div class="card">
             <div class="card-header">Posts</div>
-            <div class="card-body">
+            <div class="card-data">
               <div class="row">
                 <div class="col-lg-12">
                   <table class="table table-hover">
@@ -76,15 +76,15 @@
     },
     methods: {
       getAllPosts: function() {
-        this.$http.get('api/post')
+        this.$http.get('http://localhost:8000/api/post')
           .then(response => {
-            this.posts = response.body.posts;
-            this.categories = response.body.category;
+            this.posts = response.data.posts;
+            this.categories = response.data.category;
             console.log(response);
           })
       },
       deletePost: function (postId) {
-        this.$http.delete('api/post/' + postId)
+        this.$http.delete('http://localhost:8000/api/post/' + postId)
           .then(response => {
             let index = this.posts.indexOf(postId);
             this.posts.splice(index, 1);

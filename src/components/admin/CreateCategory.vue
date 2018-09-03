@@ -62,12 +62,10 @@
             let data = {
               name: this.name
             }
-            this.$http.post('api/category', data)
+            this.$http.post('http://localhost:8000/api/category', data)
               .then(response => {
                 console.log(response + ' ' + 'success')
-              , e => {
-                console.log(e + 'errorererer');
-              }});
+              });
 
             console.log(this.name);
             return;

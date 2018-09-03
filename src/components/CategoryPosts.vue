@@ -32,11 +32,11 @@ import Post from './Post'
    },
    methods: {
      fetchPosts: function() {
-         this.$http.get('api/category/'+ this.id + '/posts')
+         this.$http.get('http://localhost:8000/api/category/'+ this.id + '/posts')
         .then(response => {
           console.log(response);
-          this.posts = response.body.category_posts;
-          // this.posts = response.body.news.splice(0, 3);
+          this.posts = response.data.category_posts;
+          // this.posts = response.data.news.splice(0, 3);
         });
      }
    },

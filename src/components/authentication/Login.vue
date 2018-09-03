@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-6 m-auto">
         <div class="card mt-5">
-          <div class="card-body">
+          <div class="card-data">
             <form @submit.prevent="login" class="form-signin">
               <h1 class="h3 mb-4 font-weight-normal">Please sign in</h1>
 
@@ -48,9 +48,9 @@ export default {
             'password': this.password
           };
 
-          this.$http.post('oauth/token', data)
+          this.$http.post('http://localhost:8000/oauth/token', data)
             .then(response => {
-              this.$auth.setToken(response.body.access_token, response.body.expires_in + Date.now());
+              this.$auth.setToken(response.data.access_token, response.data.expires_in + Date.now());
               this.$router.push('/dashboard');
             })
             .catch(e => {

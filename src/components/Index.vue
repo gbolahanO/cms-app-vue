@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Post from './Post'
  export default {
    data () {
@@ -63,13 +64,13 @@ import Post from './Post'
    },
    methods: {
      fetchPosts: function() {
-         this.$http.get('api/blog')
+         axios.get('http://localhost:8000/api/blog')
         .then(response => {
-          this.News = response.body.news.splice(0, 3);
-          this.firstLifestyle = response.body.firstLifestyle;
-          this.secondLifestyle = response.body.secondLifestyle;
-          this.firstFresh = response.body.firstFresh;
-          this.secondFresh = response.body.secondFresh;
+          this.News = response.data.news.splice(0, 3);
+          this.firstLifestyle = response.data.firstLifestyle;
+          this.secondLifestyle = response.data.secondLifestyle;
+          this.firstFresh = response.data.firstFresh;
+          this.secondFresh = response.data.secondFresh;
           console.log(response);
         });
      }

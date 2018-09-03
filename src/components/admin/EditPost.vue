@@ -69,20 +69,20 @@
       'Sidebar': Sidebar
     },
     created() {
-      this.$http.get(`api/post/${this.$route.params.id}/edit`)
+      this.$http.get(`http://localhost:8000/api/post/${this.$route.params.id}/edit`)
         .then(response => {
-          this.post = response.body;
+          this.post = response.data;
           console.log(response);
         })
     },
     methods: {
       submitPost: function () {
-       this.$http.patch(`api/post/${this.$route.params.id}`, this.post)
+       this.$http.patch(`http://localhost:8000/api/post/${this.$route.params.id}`, this.post)
         .then(response => {
           console.log(response + ' ' + 'success')
-        , e => {
+        }).catch(e => {
           console.log(e + 'errorererer');
-        }});
+        });
 
         console.log(this.post);
       }

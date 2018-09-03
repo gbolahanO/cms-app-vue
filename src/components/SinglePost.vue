@@ -17,7 +17,7 @@
         </div>
         <div class="col-lg-10 m-auto">
           <div class="card border-0 px-5 negative-margin">
-            <div class="card-body">
+            <div class="card-data">
               {{ post.content }}
             </div>
           </div>
@@ -41,11 +41,11 @@ export default {
   },
   methods: {
     getSinglePost: function() {
-      this.$http.get('api/blog/' + this.slug)
+      this.$http.get('http://localhost:8000/api/blog/' + this.slug)
         .then((response) => {
           console.log(response);
-          this.post = response.body.post;
-          this.category = response.body.category;
+          this.post = response.data.post;
+          this.category = response.data.category;
         })
     }
   },

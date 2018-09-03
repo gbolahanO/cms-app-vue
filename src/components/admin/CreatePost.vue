@@ -88,12 +88,12 @@
           title: this.title,
           content: this.content
         }
-        this.$http.post(`api/post`, data)
+        this.$http.post(`http://localhost:8000/api/post`, data)
           .then(response => {
             console.log(response + ' ' + 'success')
-          , e => {
+           }).catch(e => {
             console.log(e + 'errorererer');
-          }});
+          });
 
         console.log(data);
       }
