@@ -12,13 +12,11 @@ import axios from 'axios'
 Vue.config.productionTip = false
 Vue.use(auth)
 Vue.use(VeeValidate)
-Vue.use(vueResource)
 Vue.use(VueMoment)
 
-axios.defaults.headers.common['Authoriztion'] = "Bearer " + Vue.auth.getToken()
+let token = Vue.auth.getToken();
 
-// Vue.http.options.root = 'http://localhost:8000'
-// Vue.http.headers.common['Authorization'] = 'Bearer ' + Vue.auth.getToken()
+axios.defaults.headers.common["Authorization"] = "Bearer " + token;
 
 /* eslint-disable no-new */
 new Vue({
